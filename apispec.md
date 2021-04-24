@@ -65,7 +65,8 @@ GET /api/game/{token}
  "agent": [
    {
      "move": [{"x": 2.72, "y": 3.14, "t": 12345}, {"x": 10, "y": 20, "t": 14181}],  // エージェントの移動情報
-     "history": "ABC" // nowまで(nowを含む)に到達したチェックポイント一覧 (直近最大max_len_task件)
+     "history": "ABC", // nowまで(nowを含む)に到達したチェックポイント一覧 (直近最大max_len_task件)
+     "history_times": [7000, 8000, 9000]  // historyに記載されているチェックポイントに到達した時刻
    },
    ...
  ],
