@@ -30,6 +30,27 @@
 
 - [最終結果](ranking.tsv)
 
+## ローカル実行
+
+ゲームサーバーを手元で動かせる環境を用意しました。
+
+docker, docker-compose をインストールした環境で、以下のコマンドを実行してください。
+
+起動
+```
+$ docker-compose up
+```
+
+ユーザー登録
+```
+# ユーザID: user0001 トークン: token0001 のユーザーを作成
+$ docker-compose exec gamedb redis-cli HSET user_token token0001 user0001
+```
+
+以下のURLでAPIとビジュアライザにアクセス可能です。
+- http://localhost:8080/api/move/token0001/1-1-1
+- http://localhost:8080/visualizer/index.html?user_id=user0001&token=token0001
+
 ## ルール
 
 - コンテスト期間

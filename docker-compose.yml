@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  gamedb:
+    image: redis:5.0.5
+    volumes:
+      - gamedbvolume:/data
+
+  api:
+    build:
+      context: ./api
+    depends_on:
+      - gamedb
+    restart: on-failure
+    environment:
+      - GAMEDB_HOST=gamedb
+      - GAMEDB_PORT=6379
+    command: api +0
+
+  score:
+    build:
+      context: ./api
+    depends_on:
+      - gamedb
+    restart: on-failure
+    environment:
+      - GAMEDB_HOST=gamedb
+      - GAMEDB_PORT=6379
+    command: calcScore +0
+
+  lb:
+    build: ./lb
+    depends_on:
+    - api
+    ports:
+    - 8080:80
+    volumes:
+    - ./visualizer/artifact:/visualizer
+
+  game-init:
+    build:
+      context: ./batch
+      dockerfile: Dockerfile
+    environment:
+      - GAMEDB_HOST=gamedb
+      - GAMEDB_PORT=6379
+    depends_on:
+      - gamedb
+    volumes:
+    - ./batch:/app
+    command: sh -c "sh clear.sh && python3 set_map_info.py ./maps/2021-contest +0"
+
+volumes:
+  gamedbvolume:
