@@ -52,6 +52,13 @@ $ docker-compose exec gamedb redis-cli HSET user_token token0001 user0001
 - http://localhost:8080/api/move/token0001/1-1-1
 - http://localhost:8080/visualizer/index.html?user_id=user0001&token=token0001
 
+## ビジュアライザで使用したライブラリ等
+
+- [Json.NET (MIT) © James Newton-King](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md)
+- [TextShader (MIT) © gam0022](https://qiita.com/gam0022/items/f3b7a3e9821a67a5b0f3)
+- [Rajdhani (OFL) © Indian Type Foundry](https://fonts.google.com/specimen/Rajdhani)
+- [Share Tech Mono (OFL) © Carrois Apostrophe](https://fonts.google.com/specimen/Share+Tech+Mono)
+
 ## ルール
 
 - コンテスト期間
