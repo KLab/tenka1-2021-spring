@@ -10,23 +10,23 @@ services:
     build:
       context: ./api
     depends_on:
-      - gamedb
+      - game-init
     restart: on-failure
     environment:
       - GAMEDB_HOST=gamedb
       - GAMEDB_PORT=6379
-    command: api +0
+    command: api
 
   score:
     build:
       context: ./api
     depends_on:
-      - gamedb
+      - game-init
     restart: on-failure
     environment:
       - GAMEDB_HOST=gamedb
       - GAMEDB_PORT=6379
-    command: calcScore +0
+    command: calcScore
 
   lb:
     build: ./lb
