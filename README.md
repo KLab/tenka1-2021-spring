@@ -2,7 +2,6 @@
 
 - [公式サイト](https://tenka1.klab.jp/2021-spring/)
 - [問題概要](PROBLEM.md)
-- [ポータルサイト](https://contest.2021-spring.gbc.tenka1.klab.jp/portal/index.html)
 - [ポータルサイトの使い方](portal.md)
 - [ビジュアライザの使い方](visualizer.md)
 - [API仕様](apispec.md)
